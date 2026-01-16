@@ -1,0 +1,5 @@
+@for (item of moviesResponse?.titles; track item.id) {
+<li>{{ item.primaryTitle }}</li>
+} @empty {
+<li>There are no items.</li>
+}

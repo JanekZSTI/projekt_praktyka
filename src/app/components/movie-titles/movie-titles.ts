@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { TitlesService } from '../../services/titles.service';
+import { JsonPipe } from '@angular/common';
 
 
 @Component({
@@ -7,16 +8,20 @@ import { TitlesService } from '../../services/titles.service';
   templateUrl: './movie-titles.html',
   standalone: true,
   styleUrls: ['./movie-titles.css'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class MovieTitles implements OnInit {
 
-  constructor(private titleService: TitlesService) {}
+  moviesResponse: any = null;
+
+  constructor(private titleService: TitlesService, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.titleService.getData().subscribe(data => {
-      console.log(data);       
-
+      console.log(data);
+      this.moviesResponse = data
+      this.cdRef.detectChanges();
     });
   }
 }
