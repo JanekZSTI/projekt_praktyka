@@ -1,5 +1,9 @@
-@for (item of moviesResponse?.titles; track item.id) {
-<li>{{ item.primaryTitle }}</li>
+<table>
+    <tr><th>Typ filmu</th><th>Tytuł</th><th>Rok wydania</th><th>Gatunki</th><th>Fabuła</th></tr>
+@for (item of moviesResponse()?.titles; track item.id) {
+    <tr><td>{{ item.type }}</td><td>{{ item.primaryTitle }}</td><td>{{ item.startYear }}</td><td>{{ item.genres }}</td><td>{{ item.plot }}</td></tr>
 } @empty {
-<li>There are no items.</li>
+    <tr><td>There are no items.</td></tr>
 }
+</table>
+ 
