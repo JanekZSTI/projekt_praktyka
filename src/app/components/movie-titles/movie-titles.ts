@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { TitlesService } from '../../services/titles.service';
+import { MoviesResponse } from '../../services/titles.service';
 import { JsonPipe } from '@angular/common';
 
 
@@ -13,7 +14,7 @@ import { JsonPipe } from '@angular/common';
 
 export class MovieTitles implements OnInit {
 
-  moviesResponse: any = null;
+  moviesResponse?: MoviesResponse;
 
   constructor(private titleService: TitlesService, private cdRef: ChangeDetectorRef) { }
 

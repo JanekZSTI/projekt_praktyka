@@ -7,42 +7,41 @@ import { Observable } from 'rxjs';
 })
 
 export class TitlesService {
-
   private http = inject(HttpClient);
 
-  getData(): Observable<any> {
+  getData(): Observable<MoviesResponse> {
     const url = "https://api.imdbapi.dev/titles";
-    return this.http.get(url);
+    return this.http.get<MoviesResponse>(url);
   }
 }
 
 export interface MoviesResponse {
-  titles: any[];
-  totalCount: any;
-  nextPageToken: any;
+  titles: Title[];
+  totalCount: number;
+  nextPageToken: string;
 }
 
 export interface Title {
-  id: any;
-  type: any;
-  primaryTitle: any;
-  originalTitle: any;
-  primaryImage: any;
-  startYear: any;
-  endYear?: any;
-  runtimeSeconds?: any;
-  genres: any[];
-  rating?: any;
-  plot: any;
+  id: string;
+  type: string;
+  primaryTitle: string;
+  originalTitle: string;
+  primaryImage?: PrimaryImage;
+  startYear: number;
+  endYear?: number;
+  runtimeSeconds?: number;
+  genres: string[];
+  rating?: Rating;
+  plot: string;
 }
 
 export interface PrimaryImage {
-  url: any;
-  width: any;
-  height: any;
+  url: string;
+  width: number;
+  height: number;
 }
 
 export interface Rating {
-  aggregateRating: any;
-  voteCount: any;
+  aggregateRating: number;
+  voteCount: number;
 }
