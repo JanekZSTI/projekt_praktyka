@@ -2,15 +2,22 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 th, td {
   border: 1px solid #cfcdcd;
   padding: 10px;
   text-align: left;
+    height: 50px;
 }
 
 th {
   background-color: #54c258;
   color: white;
 }
+
+.td-last{
+  text-align: center;
+}
+

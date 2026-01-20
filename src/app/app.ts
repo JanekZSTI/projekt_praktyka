@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MovieTitles } from "./components/movie-titles/movie-titles";
+
+
 
 @Component({
   selector: 'app-root',
@@ -11,4 +13,5 @@ import { MovieTitles } from "./components/movie-titles/movie-titles";
 })
 export class App {
   protected readonly title = signal('projekt-praktyka');
+
 }
