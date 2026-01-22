@@ -6,20 +6,25 @@ import { MatDialog } from '@angular/material/dialog';
 import { MovieDialog } from '../movie-dialog/movie-dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { MoviePipe } from '../pipes/movie-pipe';
 
 @Component({
   selector: 'app-movie-titles',
   templateUrl: './movie-titles.html',
   standalone: true,
   styleUrls: ['./movie-titles.css'],
-  changeDetection: ChangeDetectionStrategy.Default,
-  imports: [CommonModule, MatButtonModule, MatIconModule]
+  changeDetection: ChangeDetectionStrategy.Default, 
+  imports: [CommonModule, MatButtonModule, MatIconModule, MoviePipe]
 })
 export class MovieTitles implements OnInit {
   moviesResponse = signal<MoviesResponse | undefined>(undefined);
+  selectedMovie = signal<Title | undefined>(undefined);
 
 
-  constructor(private titleService: TitlesService) { }
+
+  //constructor(private titleService: TitlesService) { }
+  titleService = inject(TitlesService)
+
 
   ngOnInit(): void {
     this.titleService.getData().subscribe((data) => {
@@ -28,7 +33,7 @@ export class MovieTitles implements OnInit {
     });
   }
 
-  readonly dialog = inject(MatDialog);
+  dialog = inject(MatDialog);
 
   openDialog(movie: Title): void {
     this.dialog.open(MovieDialog, {

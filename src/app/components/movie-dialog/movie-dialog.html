@@ -20,11 +20,11 @@
         <h4>Podstawowe informacje</h4>
         <div class="info-item">
           <span class="label">Tytuł:</span>
-          <span class="value">{{ data.primaryTitle }}</span>
+          <span class="value">{{ data.primaryTitle}}</span>
         </div>
         <div class="info-item">
           <span class="label">Typ:</span>
-          <span class="value type-badge">{{ data.type }}</span>
+          <span class="value type-badge">{{ data.type | moviePipe: 'type' }}</span>
         </div>
         <div class="info-item">
           <span class="label">Rok wydania:</span>
@@ -40,7 +40,7 @@
         <div class="info-section">
           <h4>Gatunki</h4>
           <div class="genres-container">
-              <span>{{ data.genres.join(", ")}}</span>
+              <span>{{ data.genres | moviePipe}}</span>
           </div>
         </div>
 

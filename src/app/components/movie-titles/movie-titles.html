@@ -3,10 +3,10 @@
   </tr>
   @for (item of moviesResponse()?.titles; track item.id) {
     <tr>
-      <td>{{ item.type }}</td>
-      <td>{{ item.primaryTitle }}</td>
-      <td>{{ item.startYear }}</td>
-      <td>{{ item.genres }}</td>
+      <td>{{ item.type | moviePipe: 'type'}}</td>
+      <td>{{ item.primaryTitle}}</td>
+      <td>{{ item.startYear}}</td>
+      <td>{{ item.genres | moviePipe}}</td>
       <td class="td-last">
         <button mat-raised-button style="margin: 10px;" (click)="openMovieDetails(item.id)">Szczegóły</button>
       </td>
