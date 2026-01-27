@@ -1,5 +1,10 @@
 <table>
-  <tr><th>Typ filmu</th><th>Tytuł</th><th>Rok wydania</th><th>Gatunki</th><th>Szczegóły</th>
+  <tr class="table-header">
+    <th>Typ filmu</th>
+    <th>Tytuł</th>
+    <th>Rok wydania</th>
+    <th>Gatunki</th>
+    <th class="th-last">Szczegóły</th>
   </tr>
   @for (item of moviesResponse()?.titles; track item.id) {
     <tr>
@@ -8,10 +13,18 @@
       <td>{{ item.startYear}}</td>
       <td>{{ item.genres | moviePipe}}</td>
       <td class="td-last">
-        <button mat-raised-button style="margin: 10px;" (click)="openMovieDetails(item.id)">Szczegóły</button>
+        <button mat-stroked-button class="open-button" (click)="openMovieDetails(item.id)">Szczegóły</button>
       </td>
     </tr>
   } @empty {
     <tr><td colspan="5">Brak filmów do wyświetlenia.</td></tr>
   }
 </table>
+
+<app-movie-pagination 
+  [currentPage]="currentPage()"
+  [hasNext]="hasNextPage()"
+  [hasPrevious]="hasPreviousPage()"
+  (next)="nextPage()"
+  (previous)="previousPage()">
+</app-movie-pagination>

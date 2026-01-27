@@ -15,29 +15,29 @@
         >
       </div>
 
-    <div class="info-grid">
-      <div class="info-section">
-        <h4>Podstawowe informacje</h4>
-        <div class="info-item">
+    <div class="info info-grid">
+      <div class="info info-section">
+        <h4>Podstawowe infrmacje</h4>
+        <div class="info info-item">
           <span class="label">Tytuł:</span>
           <span class="value">{{ data.primaryTitle}}</span>
         </div>
-        <div class="info-item">
+        <div class="info info-item">
           <span class="label">Typ:</span>
           <span class="value type-badge">{{ data.type | moviePipe: 'type' }}</span>
         </div>
-        <div class="info-item">
+        <div class="info info-item">
           <span class="label">Rok wydania:</span>
           <span class="value">{{ data.startYear }}</span>
         </div>
-        <div class="info-item">
+        <div class="info info-item">
           <span class="label">Czas trwania:</span>
           <span class="value">{{ (data.runtimeSeconds) / 60 }} min</span>
         </div>
       </div>
 
 
-        <div class="info-section">
+        <div class="info info-section">
           <h4>Gatunki</h4>
           <div class="genres-container">
               <span>{{ data.genres | moviePipe}}</span>
@@ -45,12 +45,12 @@
         </div>
 
 
-        <div class="info-section full-width">
+        <div class="info info-section full-width">
           <h4>Fabuła</h4>
           <p>{{ data.plot }}</p>
         </div>
 
-        <div class="info-section">
+        <div class="info info-section">
           <h4>Reżyserzy</h4>
           <ul class="people-list">
             @for (director of data.directors; track director.id) {
@@ -59,7 +59,7 @@
           </ul>
         </div>
         
-        <div class="info-section">
+        <div class="info info-section">
           <h4>Ocena</h4>
           <div class="rating-container">
             <div class="rating-score">
@@ -72,7 +72,7 @@
           </div>
         </div>
 
-        <div class="info-section">
+        <div class="info info-section">
           <h4>Kraj produkcji</h4>
           <div class="countries-container">
             @for (country of data.originCountries; track country.code) {

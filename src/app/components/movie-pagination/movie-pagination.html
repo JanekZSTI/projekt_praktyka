@@ -1,0 +1,17 @@
+<div class="pagination">
+  <button 
+    class="pagination-button" 
+    (click)="previousPage()"
+    [disabled]="!hasPrevious">
+    &#60;
+  </button>
+  
+  <span class="number-page">Strona {{ currentPage }}</span>
+  
+  <button 
+    class="pagination-button" 
+    (click)="nextPage()"
+    [disabled]="!hasNext">
+    &#62;
+  </button>
+</div>

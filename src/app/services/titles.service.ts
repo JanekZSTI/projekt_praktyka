@@ -9,8 +9,13 @@ import { Observable } from 'rxjs';
 export class TitlesService {
     private http = inject(HttpClient);
 
-    getData(): Observable<MoviesResponse> {
-        const url = "https://api.imdbapi.dev/titles";
+    getData(pageToken: string = ''): Observable<MoviesResponse> {
+        let url = "https://api.imdbapi.dev/titles";
+        
+        if(pageToken) {
+            url += `?pageToken=${pageToken}`;
+        }
+        
         return this.http.get<MoviesResponse>(url);
     }
 
