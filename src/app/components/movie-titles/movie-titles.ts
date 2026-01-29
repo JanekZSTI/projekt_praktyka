@@ -7,6 +7,7 @@ import { MovieDialog } from '../movie-dialog/movie-dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MoviePipe } from '../pipes/movie-pipe';
+import { GenresPipe } from '../pipes/genres-pipe';
 import { MoviePagination } from '../movie-pagination/movie-pagination';
 
 @Component({
@@ -15,7 +16,7 @@ import { MoviePagination } from '../movie-pagination/movie-pagination';
   standalone: true,
   styleUrls: ['./movie-titles.css'],
   changeDetection: ChangeDetectionStrategy.Default,
-  imports: [CommonModule, MatButtonModule, MatIconModule, MoviePipe, MoviePagination]
+  imports: [CommonModule, MatButtonModule, MatIconModule, MoviePipe, MoviePagination, GenresPipe]
 })
 
 export class MovieTitles implements OnInit {

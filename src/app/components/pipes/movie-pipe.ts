@@ -7,21 +7,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MoviePipe implements PipeTransform {
   transform(value: unknown, format?: string): any {
     if (format === 'type') {
-      if (value === 'tvSeries') {
-        return 'serial';
-      } else if (value === 'movie') {
-        return 'film';
-      } else if (value === 'tvMiniSeries') {
-        return 'miniSerial';
-      } else {
-        return value;
+      switch(value) {
+        case 'tvSeries':
+          return 'serial';
+        case 'movie':
+          return 'film';
+        case 'tvMiniSeries':
+          return 'mini serial';
+        default:
+          return value;
       }
-    }
-
-    if (Array.isArray(value)) {
-      return value.join(', ');
-    } else {
-      return value;
     }
   }
 }
+

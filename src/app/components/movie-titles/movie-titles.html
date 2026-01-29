@@ -11,7 +11,7 @@
       <td>{{ item.type | moviePipe: 'type'}}</td>
       <td>{{ item.primaryTitle}}</td>
       <td>{{ item.startYear}}</td>
-      <td>{{ item.genres | moviePipe}}</td>
+      <td>{{ item.genres | genresPipe: 'genres'}}</td>
       <td class="td-last">
         <button mat-stroked-button class="open-button" (click)="openMovieDetails(item.id)">Szczegóły</button>
       </td>

@@ -5,13 +5,14 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { CommonModule } from '@angular/common';
 import { Title } from '../../services/titles.service';
 import { MoviePipe } from '../pipes/movie-pipe';
+import { GenresPipe } from '../pipes/genres-pipe';
 
 @Component({
   selector: 'app-movie-dialog',
   templateUrl: './movie-dialog.html',
   styleUrls: ['./movie-dialog.css'],
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatDialogModule, MoviePipe]
+  imports: [CommonModule, MatButtonModule, MatIconModule, MatDialogModule, MoviePipe, GenresPipe]
 })
 export class MovieDialog {
   constructor(
