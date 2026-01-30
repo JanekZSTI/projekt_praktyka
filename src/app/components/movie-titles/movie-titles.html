@@ -1,3 +1,6 @@
+<header>
+  <app-movie-filters (filtersChanged)="onFiltersChanged($event)"></app-movie-filters>
+</header>
 <table>
   <tr class="table-header">
     <th>Typ filmu</th>
@@ -6,7 +9,7 @@
     <th>Gatunki</th>
     <th class="th-last">Szczegóły</th>
   </tr>
-  @for (item of moviesResponse()?.titles; track item.id) {
+  @for (item of filteredMoviesResponse()?.titles; track item.id) {
     <tr>
       <td>{{ item.type | moviePipe: 'type'}}</td>
       <td>{{ item.primaryTitle}}</td>

@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { MoviePipe } from '../pipes/movie-pipe';
 import { GenresPipe } from '../pipes/genres-pipe';
 import { MoviePagination } from '../movie-pagination/movie-pagination';
+import { MovieFilters } from "../movie-filters/movie-filters";
+
 
 @Component({
   selector: 'app-movie-titles',
@@ -16,15 +18,17 @@ import { MoviePagination } from '../movie-pagination/movie-pagination';
   standalone: true,
   styleUrls: ['./movie-titles.css'],
   changeDetection: ChangeDetectionStrategy.Default,
-  imports: [CommonModule, MatButtonModule, MatIconModule, MoviePipe, MoviePagination, GenresPipe]
+  imports: [CommonModule, MatButtonModule, MatIconModule, MoviePipe, MoviePagination, GenresPipe, MovieFilters]
 })
 
 export class MovieTitles implements OnInit {
   moviesResponse = signal<MoviesResponse | undefined>(undefined);
+  filteredMoviesResponse = signal<MoviesResponse | undefined>(undefined);
   selectedMovie = signal<Title | undefined>(undefined);
 
   pageTokens = signal<string[]>(['']);
   currentPage = signal<number>(1);
+  selectedTypes = signal<string[]>([]);
 
   titleService = inject(TitlesService);
   dialog = inject(MatDialog);
@@ -35,9 +39,43 @@ export class MovieTitles implements OnInit {
 
   loadPage(token: string): void {
     this.titleService.getData(token).subscribe((data) => {
-      console.log(data);
+      console.log('Dane z API:', data);
       this.moviesResponse.set(data);
+      this.applyFilters();
     });
+  }
+
+  applyFilters(): void {
+    const response = this.moviesResponse();
+    const selectedTypes = this.selectedTypes();
+    
+    if (!response) {
+      this.filteredMoviesResponse.set(undefined);
+      return;
+    }
+
+    if (selectedTypes.length === 0) {
+      this.filteredMoviesResponse.set(response);
+      return;
+    }
+
+    const filteredTitles = response.titles.filter(title => 
+      selectedTypes.includes(title.type)
+    );
+
+    console.log('Wybrane filtry:', selectedTypes);
+    console.log('Przefiltrowane tytuły:', filteredTitles.length);
+
+    this.filteredMoviesResponse.set({
+      ...response,
+      titles: filteredTitles
+    });
+  }
+
+  onFiltersChanged(types: string[]): void {
+    console.log('Zmiana filtrów:', types);
+    this.selectedTypes.set(types);
+    this.applyFilters();
   }
 
   hasNextPage(): boolean {
@@ -87,4 +125,7 @@ export class MovieTitles implements OnInit {
   onPageChange(page: number) {
     this.currentPage.set(page);
   }
+
+
+
 }

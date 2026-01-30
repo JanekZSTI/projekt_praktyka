@@ -11,6 +11,11 @@
   gap: 15px;
 }
 
+.number-page {
+  font-size: 14px;
+  padding: 4px 8px;
+}
+
 .pagination-button {
   color: #ffffff;
   background: transparent;
@@ -20,11 +25,6 @@
   font-size: 14px;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.number-page {
-  font-size: 14px;
-  padding: 4px 8px;
 }
 
 .pagination-button:hover:not(:disabled) {

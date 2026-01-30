@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Typ filmu</mat-label>
+  <mat-select [formControl]="filmType" multiple>
+    @for (filmType of filmTypeList; track filmType.value) {
+      <mat-option [value]="filmType.value">{{filmType.label}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
