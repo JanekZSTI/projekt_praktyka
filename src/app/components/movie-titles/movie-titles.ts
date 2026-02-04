@@ -125,7 +125,4 @@ export class MovieTitles implements OnInit {
   onPageChange(page: number) {
     this.currentPage.set(page);
   }
-
-
-
 }

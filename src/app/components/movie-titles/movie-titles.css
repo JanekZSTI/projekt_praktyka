@@ -43,15 +43,22 @@ tr:nth-child(even) {
   text-align: center;
 }
 
-.open-button{
+.open-button {
   color: #e5e5e5 !important;
-  background-color: #ff0c0c00 !important;
-  border: 1px solid #ffffff56 !important;
+  transition: all 0.3s ease;
+  opacity: 0.7;
 }
 
-.open-button:hover{
-  background-color: #000000!important;
-  border: 1px solid #312f2f !important;
+.open-button:hover {
+  opacity: 1;
+  color: #e50914 !important;
+  transform: scale(1.1);
+}
+
+.open-button mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .pagination{

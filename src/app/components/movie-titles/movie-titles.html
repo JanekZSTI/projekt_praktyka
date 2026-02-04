@@ -16,7 +16,9 @@
       <td>{{ item.startYear}}</td>
       <td>{{ item.genres | genresPipe: 'genres'}}</td>
       <td class="td-last">
-        <button mat-stroked-button class="open-button" (click)="openMovieDetails(item.id)">Szczegóły</button>
+        <button mat-icon-button class="open-button" (click)="openMovieDetails(item.id)" aria-label="Szczegóły">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
       </td>
     </tr>
   } @empty {
