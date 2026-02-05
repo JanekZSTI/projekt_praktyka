@@ -17,7 +17,7 @@
 
     <div class="info info-grid">
       <div class="info info-section">
-        <h4>Podstawowe infrmacje</h4>
+        <h4>Podstawowe informacje</h4>
         <div class="info info-item">
           <span class="label">Tytuł:</span>
           <span class="value">{{ data.primaryTitle}}</span>
@@ -54,7 +54,9 @@
           <h4>Reżyserzy</h4>
           <ul class="people-list">
             @for (director of data.directors; track director.id) {
-              <li>{{ director.displayName }}</li>
+              <li>
+                {{ director.displayName }}
+              </li>
             }
           </ul>
         </div>

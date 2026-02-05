@@ -16,9 +16,9 @@ export class MovieFilters {
 
   filmType = new FormControl<string[]>([]);
   filmTypeList: { value: string, label: string }[] = [
-    { value: 'movie', label: 'Film' },
-    { value: 'tvSeries', label: 'Serial' },
-    { value: 'tvMiniSeries', label: 'Mini serial' }
+    { value: 'MOVIE', label: 'Film' },
+    { value: 'TV_SERIES', label: 'Serial' },
+    { value: 'TV_MINI_SERIES', label: 'Mini serial' }
   ];
 
   constructor() {

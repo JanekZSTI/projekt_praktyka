@@ -9,11 +9,22 @@ import { Observable } from 'rxjs';
 export class TitlesService {
     private http = inject(HttpClient);
 
-    getData(pageToken: string = ''): Observable<MoviesResponse> {
+    getData(pageToken: string = '', types: string[] = []): Observable<MoviesResponse> {
         let url = "https://api.imdbapi.dev/titles";
+        const params: string[] = [];
         
         if(pageToken) {
-            url += `?pageToken=${pageToken}`;
+            params.push(`pageToken=${pageToken}`);
+        }
+        
+        if(types && types.length > 0) {
+            types.forEach(type => {
+                params.push(`types=${type}`);
+            });
+        }
+        
+        if(params.length > 0) {
+            url += `?${params.join('&')}`;
         }
         
         return this.http.get<MoviesResponse>(url);

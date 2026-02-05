@@ -23,7 +23,6 @@ import { MovieFilters } from "../movie-filters/movie-filters";
 
 export class MovieTitles implements OnInit {
   moviesResponse = signal<MoviesResponse | undefined>(undefined);
-  filteredMoviesResponse = signal<MoviesResponse | undefined>(undefined);
   selectedMovie = signal<Title | undefined>(undefined);
 
   pageTokens = signal<string[]>(['']);
@@ -34,48 +33,24 @@ export class MovieTitles implements OnInit {
   dialog = inject(MatDialog);
 
   ngOnInit(): void {
-    this.loadPage('');
+    this.loadPage('', []);
   }
 
-  loadPage(token: string): void {
-    this.titleService.getData(token).subscribe((data) => {
+  loadPage(token: string, types: string[]): void {
+    this.titleService.getData(token, types).subscribe((data) => {
       console.log('Dane z API:', data);
+      console.log('Liczba filmów:', data.titles.length);
       this.moviesResponse.set(data);
-      this.applyFilters();
-    });
-  }
-
-  applyFilters(): void {
-    const response = this.moviesResponse();
-    const selectedTypes = this.selectedTypes();
-    
-    if (!response) {
-      this.filteredMoviesResponse.set(undefined);
-      return;
-    }
-
-    if (selectedTypes.length === 0) {
-      this.filteredMoviesResponse.set(response);
-      return;
-    }
-
-    const filteredTitles = response.titles.filter(title => 
-      selectedTypes.includes(title.type)
-    );
-
-    console.log('Wybrane filtry:', selectedTypes);
-    console.log('Przefiltrowane tytuły:', filteredTitles.length);
-
-    this.filteredMoviesResponse.set({
-      ...response,
-      titles: filteredTitles
     });
   }
 
   onFiltersChanged(types: string[]): void {
-    console.log('Zmiana filtrów:', types);
     this.selectedTypes.set(types);
-    this.applyFilters();
+    
+    this.currentPage.set(1);
+    this.pageTokens.set(['']);
+    
+    this.loadPage('', types);
   }
 
   hasNextPage(): boolean {
@@ -108,7 +83,7 @@ export class MovieTitles implements OnInit {
       }
 
       this.currentPage.set(this.currentPage() + 1);
-      this.loadPage(nextToken);
+      this.loadPage(nextToken, this.selectedTypes());
     }
   }
 
@@ -118,7 +93,7 @@ export class MovieTitles implements OnInit {
       this.currentPage.set(newPage);
 
       const token = this.pageTokens()[newPage - 1];
-      this.loadPage(token);
+      this.loadPage(token, this.selectedTypes());
     }
   }
 
