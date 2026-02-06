@@ -1,12 +1,18 @@
-<div class="filter-container">
-  <mat-icon class="filter-icon">filter_list</mat-icon>
-  <span class="filter-label">Filtruj:</span>
-  <mat-form-field appearance="fill">
-    <mat-label>Typ filmu</mat-label>
-    <mat-select [formControl]="filmType" multiple>
-      @for (filmType of filmTypeList; track filmType.value) {
-        <mat-option [value]="filmType.value">{{filmType.label}}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
+<div class="filter-container">    
+  <div class="filter-container">
+    <mat-icon class="filter-icon">filter_list</mat-icon>
+    <span class="filter-label">Filtruj:</span>
+    <mat-form-field appearance="fill">
+      <mat-label>Typ filmu</mat-label>
+      <mat-select [formControl]="filmType" multiple>
+        @for (filmType of filmTypeList; track filmType.value) {
+          <mat-option [value]="filmType.value">{{filmType.label}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="box-btn">  
+    <button mat-icon-button (click)="toggleTheme()" class="theme-toggle-btn" [attr.aria-label]="isDarkTheme ? 'Przełącz na jasny motyw' : 'Przełącz na ciemny motyw'"><mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon></button>
+  </div>
 </div>

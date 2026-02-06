@@ -1,3 +1,215 @@
 .mdc-text-field {
     margin-top: 15px;
 }
+/* ==== JASNY MOTYW ==== */
+body.light-theme {
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+/* ==== TABELA - Jasny motyw ==== */
+body.light-theme table {
+  background-color: #ffffff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme th {
+  background: linear-gradient(180deg, #1976d2 10%, #2196f3 100%);
+  color: #ffffff;
+}
+
+body.light-theme td {
+  color: #333333;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+body.light-theme tr {
+  background-color: #fafafa;
+}
+
+body.light-theme tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+body.light-theme .open-button {
+  color: #333333 !important;
+}
+
+body.light-theme .open-button:hover {
+  color: #2196f3 !important;
+}
+
+/* ==== HEADER - Jasny motyw ==== */
+body.light-theme header {
+  background: linear-gradient(360deg, #1976d2 100%, #2196f3 10%);
+}
+
+/* ==== PAGINACJA - Jasny motyw ==== */
+body.light-theme .pagination {
+  background: linear-gradient(#1976d2 10%, #2196f3 90%);
+  color: #ffffff;
+}
+
+body.light-theme .pagination-button {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+body.light-theme .pagination-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ==== FILTRY - Jasny motyw ==== */
+body.light-theme .filter-icon {
+  color: #ffffff;
+}
+
+body.light-theme .filter-label {
+  color: #ffffff;
+}
+
+body.light-theme ::ng-deep .mat-mdc-form-field .mat-mdc-text-field-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+body.light-theme ::ng-deep .mat-mdc-form-field .mat-mdc-floating-label {
+  color: #666666 !important;
+}
+
+body.light-theme ::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: #2196f3 !important;
+}
+
+body.light-theme ::ng-deep .mat-mdc-select-value {
+  color: #333333;
+}
+
+body.light-theme ::ng-deep .mat-mdc-select-arrow {
+  color: #2196f3;
+}
+
+body.light-theme ::ng-deep .mat-mdc-select-panel {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+body.light-theme ::ng-deep .mat-mdc-option {
+  color: #333333;
+}
+
+body.light-theme ::ng-deep .mat-mdc-option:hover {
+  background-color: #f5f5f5;
+}
+
+body.light-theme ::ng-deep .mat-mdc-option.mat-mdc-option-active {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+body.light-theme ::ng-deep .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
+  background-color: #e3f2fd !important;
+  color: #1976d2 !important;
+}
+
+body.light-theme ::ng-deep .mat-pseudo-checkbox-checked {
+  background-color: #2196f3;
+  border-color: #2196f3;
+}
+
+body.light-theme ::ng-deep .mat-pseudo-checkbox {
+  border-color: #999999;
+}
+
+body.light-theme ::ng-deep .mat-pseudo-checkbox:hover {
+  border-color: #2196f3;
+}
+
+body.light-theme .theme-toggle-btn {
+  color: #ffffff !important;
+}
+
+/* ==== DIALOG - Jasny motyw ==== */
+body.light-theme .dialog-container {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+body.light-theme .dialog-header {
+  background: linear-gradient(90deg, #1976d2 0%, #2196f3 100%);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+body.light-theme .dialog-header h2 {
+  color: #ffffff;
+}
+
+body.light-theme .close-btn {
+  color: #ffffff;
+}
+
+body.light-theme .close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.light-theme .info-section {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #2196f3;
+}
+
+body.light-theme .info-section:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .info-section h4 {
+  color: #2196f3;
+}
+
+body.light-theme .info-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+body.light-theme .label {
+  color: #666666;
+}
+
+body.light-theme .value {
+  color: #333333;
+}
+
+body.light-theme .type-badge {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+}
+
+body.light-theme .plot-text,
+body.light-theme p {
+  color: #444444;
+}
+
+body.light-theme .people-list {
+  color: #333333;
+}
+
+body.light-theme .score {
+  color: #ff9800;
+}
+
+body.light-theme .score-max {
+  color: #666666;
+}
+
+body.light-theme .rating-votes {
+  color: #666666;
+}
+
+div.mat-mdc-select-panel{
+    background-color: #1a1a1a !important;
+}
+
+.mdc-list-item__primary-text{
+    color: #FFF;
+}
+
