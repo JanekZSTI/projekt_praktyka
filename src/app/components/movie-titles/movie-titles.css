@@ -37,22 +37,23 @@ tr:nth-child(even) {
 
 .td-last {
   text-align: center;
+  padding-right: 10px;
 }
 
 .th-last {
   text-align: center;
+  padding-right: 10px;
 }
 
 .open-button {
   color: #e5e5e5 !important;
-  transition: all 0.3s ease;
+  transition: 0.3s;
   opacity: 0.7;
 }
 
 .open-button:hover {
   opacity: 1;
   color: #e50914 !important;
-  transform: scale(1.1);
 }
 
 .open-button mat-icon {
@@ -94,6 +95,6 @@ header{
     #b20710 100%,
     #e50914 10%
   );
-  height: 50px;
-  padding: 15px 15px 15px 10px;
+  height: 85px;
+  padding-left: 10px;
 }

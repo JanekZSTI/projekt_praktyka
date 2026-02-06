@@ -50,6 +50,8 @@ export class GenresPipe implements PipeTransform {
         return 'Sportowy';
       case 'War':
         return 'Wojenny';
+      case 'Documentary':
+        return 'Dokument';        
       default:
         return String(genre);
     }

@@ -17,7 +17,7 @@
 
     <div class="info info-grid">
       <div class="info info-section">
-        <h4>Podstawowe informacje</h4>
+        <h4><mat-icon>info</mat-icon>Podstawowe informacje</h4>
         <div class="info info-item">
           <span class="label">Tytuł:</span>
           <span class="value">{{ data.primaryTitle}}</span>
@@ -38,7 +38,7 @@
 
 
         <div class="info info-section">
-          <h4>Gatunki</h4>
+          <h4><mat-icon>category</mat-icon>Gatunki</h4>
           <div class="genres-container">
               <span>{{ data.genres | genresPipe: "genres"}}</span>
           </div>
@@ -46,12 +46,12 @@
 
 
         <div class="info info-section full-width">
-          <h4>Fabuła</h4>
+          <h4><mat-icon>article</mat-icon>Fabuła</h4>
           <p>{{ data.plot }}</p>
         </div>
 
         <div class="info info-section">
-          <h4>Reżyserzy</h4>
+          <h4><mat-icon>movie</mat-icon>Reżyserzy</h4>
           <ul class="people-list">
             @for (director of data.directors; track director.id) {
               <li>
@@ -62,7 +62,7 @@
         </div>
         
         <div class="info info-section">
-          <h4>Ocena</h4>
+          <h4><mat-icon>star</mat-icon>Ocena</h4>
           <div class="rating-container">
             <div class="rating-score">
               <span class="score">{{ data.rating.aggregateRating }}</span>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="info info-section">
-          <h4>Kraj produkcji</h4>
+          <h4><mat-icon>public</mat-icon>Kraj produkcji</h4>
           <div class="countries-container">
             @for (country of data.originCountries; track country.code) {
               <span class="country-tag">{{ country.name }}</span>

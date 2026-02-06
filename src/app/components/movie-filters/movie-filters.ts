@@ -1,11 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-filters',
-  imports: [MatSelectModule, MatFormFieldModule, FormsModule, ReactiveFormsModule],
+  imports: [MatSelectModule, MatFormFieldModule, MatIconModule, FormsModule, ReactiveFormsModule],
   templateUrl: './movie-filters.html',
   styleUrl: './movie-filters.css',
 })
